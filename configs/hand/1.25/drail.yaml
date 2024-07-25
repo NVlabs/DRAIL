@@ -1,0 +1,64 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Hand-drail-1.25
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  num-mini-batch:
+    value: 32
+  entropy-coef:
+    value: 0.0001
+  action-input:
+    value: True
+  env-name:
+    value: CustomHandManipulateBlockRotateZ-v0
+  drail-reward-norm:
+    value: False
+  cuda:
+    value: True
+  traj-load-path:
+    value: ./expert_datasets/hand_10000.pt
+  eval-num-processes:
+    value: 1
+  num-render:
+    value: 1
+  num-eval:
+    value: 100
+  eval-interval:
+    value: 1000
+  save-interval:
+    value: 1000
+  drail-state-norm:
+    value: True
+  lr:
+    value: 0.0001
+  disc-lr:
+    value: 0.0001
+  num-epochs:
+    value: 5
+  n-drail-epochs:
+    value: 1
+  discrim-depth:
+    value: 2
+  noise-ratio:
+    value: 1.25
+  prefix:
+    value: drail
+  alg:
+    value: drail
+  seed:
+    values: [1,2,3,4,5]

@@ -1,0 +1,59 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Walker-dp-3traj
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  
+parameters:
+  alg:
+    value: dp 
+  bc-num-epochs:
+    value: 16667 
+  bc-state-norm:
+    value: True 
+  clip-actions:
+    value: True 
+  cuda:
+    value: True 
+  traj-load-path:
+    value: ./expert_datasets/ppo_walker_3.pt
+  env-name:
+    value: "Walker2d-v3"
+  eval-interval:
+    value: 10000
+  eval-num-processes:
+    value: 10
+  log-interval:
+    value: 500 
+  lr:
+    value: 0.0001 
+  normalize-env:
+    value: False 
+  num-eval:
+    value: 10 
+  num-render:
+    value: 0
+  prefix:
+    value: dp
+  save-interval:
+    value: 100000 
+  hidden-dim:
+    value: 1024
+  vid-fps:
+    value: 30 
+  depth:
+    value: 6
+  seed:
+    values: [1, 2, 3, 4, 5]

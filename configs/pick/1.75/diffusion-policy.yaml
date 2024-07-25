@@ -1,0 +1,68 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: "Pick-dp-1.75"
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+  - --il-in-action-norm 
+  - --il-out-action-norm 
+
+parameters:
+  alg:
+    value: dp 
+  bc-num-epochs:
+    value: 20000 
+  bc-state-norm:
+    value: True 
+  clip-actions:
+    value: True 
+  cuda:
+    value: True 
+  depth:
+    value: 4 
+  env-name:
+    value: FetchPickAndPlaceDiffHoldout-v0 
+  eval-interval:
+    value: 9000 
+  eval-num-processes:
+    value: 10 
+  hidden-dim:
+    value: 1200 
+  log-interval:
+    value: 3000 
+  lr:
+    value: 1e-05 
+  normalize-env:
+    value: False 
+  num-eval:
+    value: 10 
+  num-render:
+    value: 0 
+  prefix:
+    value: dp
+  save-interval:
+    value: 500000 
+  traj-batch-size:
+    value: 128 
+  traj-load-path:
+    value: ./expert_datasets/pick_10000.pt 
+  vid-fps:
+    value: 30 
+  noise-ratio:
+    value: 1.75 
+  goal-noise-ratio:
+    value: 1.75 
+  seed:
+    values: [1,2,3,4,5]

@@ -1,0 +1,60 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Sine-drail-un
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+
+parameters:
+  seed:
+    value: 1
+  alg:
+    value: drail-un
+  prefix:
+    value: drail-un
+  env-name:
+    value: Sine-v0
+  num-mini-batch:
+    value: 32
+  num-epochs:
+    value: 10
+  entropy-coef:
+    value: 0.001
+  action-input:
+    value: True
+  drail-reward-norm:
+    value: True
+  cuda:
+    value: True
+  eval-interval:
+    value: 1
+  save-interval:
+    value: 100
+  traj-load-path:
+    value: ./expert_datasets/sine.pt
+  num-eval:
+    value: 1
+  lr:
+    value: 1e-6
+  disc-lr:
+    value: 0.001
+    # values: [0.001, 0.0001, 0.00001]
+  eval-num-processes:
+    value: 1
+  num-eval:
+    value: 10
+  num-env-steps:
+    value: 5000000
+  drail-state-norm:
+    value: False

@@ -1,0 +1,56 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Pick-bc-1.25
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  prefix:
+    value: "bc"
+  alg:
+    value: "bc"
+  env-name:
+    value: FetchPickAndPlaceDiffHoldout-v0
+  eval-num-processes:
+    value: 1
+  num-render:
+    value: 1
+  num-eval:
+    value: 100
+  eval-interval:
+    value: 500
+  save-interval:
+    value: 1000
+  traj-val-ratio:
+    value: 0
+  traj-load-path:
+    value: ./expert_datasets/pick_10000.pt
+  normalize-env:
+    value: False
+  bc-num-epochs:
+    value: 1000
+  lr:
+    value: 0.0008
+  depth:
+    value: 3
+  num-env-steps:
+    value: 25000000
+  goal-noise-ratio:
+    value: 1.25
+  noise-ratio:
+    value: 1.25
+  seed:
+    values: [1,2,3,4,5]

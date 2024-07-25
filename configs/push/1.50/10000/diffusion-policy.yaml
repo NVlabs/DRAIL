@@ -1,0 +1,68 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Push-dp-1.50-10000
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  alg:
+    value: dp 
+  bc-num-epochs:
+    value: 30000 
+  bc-state-norm:
+    value: False
+  clip-actions:
+    value: True 
+  cuda:
+    value: True 
+  depth:
+    value: 4 
+  traj-load-path:
+    value: "./expert_datasets/push_10000.pt"
+  env-name:
+    value: "FetchPushEnvCustom-v0"
+  eval-interval:
+    value: 100000 
+  eval-num-processes:
+    value: 10 
+  hidden-dim:
+    value: 1200 
+  log-interval:
+    value: 500 
+  lr:
+    value: 0.0001
+    # values: [0.0001, 0.00001, 0.000001]
+  normalize-env:
+    value: False 
+  num-eval:
+    value: 10 
+  num-render:
+    value: 0 
+  prefix:
+    value: dp 
+  save-interval:
+    value: 100000 
+  seed:
+    values: [1,2,3, 4, 5] 
+    # value: 1
+  traj-frac:
+    value: 1 
+  vid-fps:
+    value: 100 
+  noise-ratio:
+    value: 1.50
+  goal-noise-ratio:
+    value: 1.50

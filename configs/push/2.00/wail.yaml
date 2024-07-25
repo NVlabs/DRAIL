@@ -1,0 +1,88 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Push-wail-2.00
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  seed:
+    values: [1, 2, 3, 4, 5]
+    # value: 1
+  prefix:
+    value: "wail"
+  alg:
+    value: "wail"
+  traj-load-path:
+    value: "./expert_datasets/push_partial2.pt"
+  env-name:
+    value: "FetchPushEnvCustom-v0"
+  normalize-env:
+    value: True
+  cuda:
+    value: True
+  eval-num-processes:
+    value: 1
+  num-render:
+    value: 30
+  num-eval:
+    value: 10
+  vid-fps:
+    value: 60
+  log-interval:
+    value: 1
+  save-interval:
+    value: 100000
+  eval-interval:
+    value: 200
+  clip-actions:
+    value: False
+  traj-batch-size:
+    value: 128
+  max-grad-norm:
+    value: 0.5
+  num-env-steps:
+    value: 5000000
+  traj-frac:
+    value: 1
+  action-input:
+    value: True
+  entropy-coef:
+    value: 0.001
+  noise-ratio:
+    value: 2.00
+  goal-noise-ratio:
+    value: 2.00
+
+  num-steps:                # Update policy storage's length
+    value: 128
+  num-epochs:               # Update policy epock
+    value: 10
+  num-mini-batch:           # For update policy
+    value: 32
+  wail-state-norm:
+    value: True
+  wail-reward-norm:
+    value: True
+  lr:
+    # values: [0.001, 0.0001, 0.00001]
+    value: 0.0001            
+  disc-lr:
+    # values: [0.0002, 0.00005]
+    value: 0.0001        
+  ppo-hidden-dim:
+    value: 256
+  regularize-epsilon:
+    value: 0.01

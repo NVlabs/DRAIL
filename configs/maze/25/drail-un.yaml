@@ -1,0 +1,61 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Maze-drail-un-25
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  seed:
+    values: [1, 2, 3, 4, 5]
+  prefix:
+    value: drail-un
+  alg:
+    value: drail-un
+  num-mini-batch:
+    value: 32
+  entropy-coef:
+    value: 0.0001
+  action-input:
+    value: True
+  env-name:
+    value: maze2d-medium-v2
+  drail-reward-norm:
+    value: False
+  cuda:
+    value: True
+  traj-load-path:
+    value: ./expert_datasets/maze2d_25.pt
+  eval-num-processes:
+    value: 1
+  num-render:
+    value: 0
+  num-eval:
+    value: 100
+  eval-interval:
+    value: 50
+  save-interval:
+    value: 50
+  lr:
+    value: 0.0001
+  disc-lr:
+    value: 0.001
+  num-epochs:
+    value: 5
+  n-drail-epochs:
+    value: 5
+  num-env-steps:
+    value: 25000000
+ 

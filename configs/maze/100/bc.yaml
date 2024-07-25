@@ -1,0 +1,61 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Maze-bc-100
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+  - --il-in-action-norm
+  - --il-out-action-norm
+
+parameters:
+  seed:
+    values: [1, 2, 3, 4, 5]
+  alg:
+    value: bc
+  bc-num-epochs:
+    value: 2000
+  env-name:
+    value: maze2d-medium-v2
+  eval-num-processes:
+    value: 1
+  num-eval:
+    value: 100
+  cuda:
+    value: True
+  num-render:
+    value: 1
+  vid-fps:
+    value: 60
+  lr:
+    value: 0.00005
+  log-interval:
+    value: 200
+  save-interval:
+    value: 20000
+  eval-interval:
+    value: 2000
+  clip-actions:
+    value: True
+  normalize-env:
+    value: False
+  bc-state-norm:
+    value: True
+  depth:
+    value: 3
+  traj-load-path:
+    value: ./expert_datasets/maze2d_100.pt
+  prefix:
+    value: bc
+ 

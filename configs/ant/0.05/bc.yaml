@@ -1,0 +1,42 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Ant-BC-0.05
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+  
+parameters:
+  prefix:
+    value: bc
+  alg:
+    value: bc
+  env-name:
+    value: AntGoal-v0
+  normalize-env:
+    value: False
+  traj-load-path:
+    value: ./expert_datasets/ant_50.pt
+  bc-num-epochs:
+    value: 1000
+  eval-num-processes:
+    value: 20
+  ant-noise:
+    value: 0.05
+  traj-frac:
+    value: 0.5
+  traj-val-ratio:
+    value: 0.2
+  seed:
+    values: [1,2,3,4,5]

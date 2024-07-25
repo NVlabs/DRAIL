@@ -1,0 +1,69 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Pick-wail-1.25
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+
+parameters:
+  prefix:
+    value: wail
+  alg:
+    value: wail
+  num-mini-batch: 
+    value: 32
+  entropy-coef: 
+    value: 0.0001
+  action-input: 
+    value: True
+  env-name: 
+    value: FetchPickAndPlaceDiffHoldout-v0
+  num-env-steps: 
+    value: 25000000
+  wail-reward-norm: 
+    value: False
+  cuda: 
+    value: False
+  traj-load-path: 
+    value: ./expert_datasets/pick_10000.pt
+  eval-num-processes: 
+    value: 1
+  num-render: 
+    value: 1
+  num-eval: 
+    value: 100
+  eval-interval: 
+    value: 1000
+  save-interval: 
+    value: 1000
+  wail-state-norm: 
+    value: True
+  lr: 
+    value: 0.0005
+  disc-lr: 
+    value: 0.0001
+  num-epochs: 
+    value: 10
+  n-wail-epochs: 
+    value: 1
+  discrim-depth: 
+    value: 3
+  goal-noise-ratio: 
+    value: 1.25
+  noise-ratio: 
+    value: 1.25
+  seed: 
+    values: [1,2,3,4,5]

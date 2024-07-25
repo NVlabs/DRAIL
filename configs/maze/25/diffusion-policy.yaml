@@ -1,0 +1,60 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Maze-dp-25
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+
+parameters:
+  seed:
+    values: [1,2,3, 4, 5] 
+  alg:
+    value: dp
+  bc-num-epochs:
+    value: 20000
+  bc-state-norm:
+    value: False
+  clip-actions:
+    value: True
+  cuda:
+    value: True
+  depth:
+    value: 4
+  env-name:
+    value: maze2d-medium-v2
+  eval-interval:
+    value: 55000
+  eval-num-processes:
+    value: 20
+  hidden-dim:
+    value: 256
+  log-interval:
+    value: 5000
+  lr:
+    value: 0.0002
+  normalize-env:
+    value: False
+  num-eval:
+    value: 5
+  num-render:
+    value: 0
+  prefix:
+    value: dp
+  save-interval:
+    value: 100000
+  traj-load-path:
+    value: ./expert_datasets/maze2d_25.pt
+  vid-fps:
+    value: 30
+ 

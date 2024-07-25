@@ -1,0 +1,85 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Walker-drailun-2traj
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+
+parameters:
+  action-input:
+    value: false
+  drail-reward-norm:
+    value: true
+  drail-state-norm:
+    value: true
+  alg:
+    value: drail-un
+  clip-actions:
+    value: true
+  cuda:
+    value: true
+  disc-lr:
+    # values: [0.001, 0.0001, 0.00005]
+    value: 0.0001
+  discrim-depth:
+    value: 4
+  discrim-num-unit:
+    value: 1024
+  entropy-coef:
+    value: 0.001
+  env-name:
+    value: Walker2d-v3
+  eval-interval:
+    value: 20000
+  eval-num-processes:
+    value: 1
+  log-interval:
+    value: 1
+  lr:
+    value: 0.0001
+  max-grad-norm:
+    value: 0.5
+  normalize-env:
+    value: true
+  num-env-steps:
+    value: 25000000
+  num-epochs:
+    value: 10
+  num-eval:
+    value: 2
+  num-mini-batch:
+    value: 32
+  num-render:
+    value: 1000
+  num-steps:
+    value: 128
+  ppo-hidden-dim:
+    value: 256
+  prefix:
+    value: drail-un
+  reward-type:
+    value: airl-positive
+  save-interval:
+    value: 100000
+  seed:
+    values: [1,2,3,4,5]
+    # value: 1
+  traj-batch-size:
+    value: 128
+  traj-frac:
+    value: 1
+  traj-load-path:
+    value: ./expert_datasets/ppo_walker_2.pt
+  vid-fps:
+    value: 100

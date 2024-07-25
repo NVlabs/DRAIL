@@ -1,0 +1,62 @@
+# Copyright (c) 2024, NVIDIA CORPORATION.  All rights reserved.
+#
+# NVIDIA CORPORATION and its licensors retain all intellectual property
+# and proprietary rights in and to this software, related documentation
+# and any modifications thereto.  Any use, reproduction, disclosure or
+# distribution of this software and related documentation without an express
+# license agreement from NVIDIA CORPORATION is strictly prohibited.
+
+project: 'drail-project'
+program: drail/main.py
+method: grid
+name: Hand-bc-2.00
+command:
+  - ${env}
+  - python3
+  - ${program}
+  - ${args}
+  - --use-proper-time-limits
+
+parameters:
+  alg:
+    value: bc
+  bc-num-epochs:
+    value: 5000
+  bc-state-norm:
+    value: True
+  clip-actions:
+    value: True
+  cuda:
+    value: True
+  depth:
+    value: 3
+  env-name:
+    value: CustomHandManipulateBlockRotateZ-v0
+  eval-interval:
+    value: 3000
+  eval-num-processes:
+    value: 10
+  hidden-dim:
+    value: 512
+  log-interval:
+    value: 1000
+  lr:
+    value: 1e-04
+  normalize-env:
+    value: False
+  num-eval:
+    value: 10
+  num-render:
+    value: 0
+  prefix:
+    value: bc
+  save-interval:
+    value: 100000
+  traj-load-path:
+    value: ./expert_datasets/hand_10000.pt
+  vid-fps:
+    value: 100
+  noise-ratio:
+    value: 2.00
+  seed:
+    values: [1,2,3,4,5]

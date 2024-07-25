@@ -6,6 +6,7 @@
 # distribution of this software and related documentation without an express
 # license agreement from NVIDIA CORPORATION is strictly prohibited.
 
+pip install -U gdown
 current_directory=$(dirname "$(realpath "$0")")
 expert_datasets_path="$current_directory/../expert_datasets"
 python ${current_directory}/download_demos.py --dir $expert_datasets_path

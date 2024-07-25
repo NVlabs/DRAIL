@@ -23,14 +23,21 @@ For business inquiries, please visit our website and submit the form: [NVIDIA Re
 
 ## Installation
 
+### Preliminaries
+
+- [pytorch](https://pytorch.org/get-started/locally/)
+- [mujoco-py](https://github.com/openai/mujoco-py?tab=readme-ov-file#install-mujoco)
+
 ### Environment Setup
 
 1. This code base requires `Python 3.8` or higher. All package requirements are in
    `requirements.txt`. To install from scratch using Anaconda, use the following
    commands.
-   `   conda create -n [your_env_name] python=3.8
-conda activate [your_env_name]
-./utils/setup.sh`
+   ```   
+   conda create -n [your_env_name] python=3.8
+   conda activate [your_env_name]
+   ./utils/setup.sh
+   ```
 
 2. Setup [Weights and Biases](https://wandb.ai/site) by first logging in with `wandb login <YOUR_API_KEY>` and then editing `config.yaml` with your W&B username and project name.
 

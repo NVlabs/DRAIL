@@ -1,10 +1,10 @@
-# Diffusion Rewards Adversarial Imitation Learning (DRAIL)
+# [NeurIPS'24] Diffusion Rewards Adversarial Imitation Learning (DRAIL)
 
 <h1 align="center"> 
     <img src="./drail_model_fig.png" width="1000">
 </h1>
 
-The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitation Learning**](https://arxiv.org/abs/2405.16194).
+The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitation Learning (NeurIPS'24)**](https://arxiv.org/abs/2405.16194).
 
 [Chun-Mao Lai\*](https://www.mecoli.net/)<sup>1</sup>,
 [Hsiang-Chun Wang\*](https://hsiangchun0205.github.io/)<sup>1</sup>,

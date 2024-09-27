@@ -1,10 +1,10 @@
-# Diffusion Rewards Adversarial Imitation Learning (DRAIL)
+# [NeurIPS'24] Diffusion Rewards Adversarial Imitation Learning (DRAIL)
 
 <h1 align="center"> 
     <img src="./drail_model_fig.png" width="1000">
 </h1>
 
-The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitation Learning**](https://arxiv.org/abs/2405.16194).
+The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitation Learning (NeurIPS'24)**](https://arxiv.org/abs/2405.16194).
 
 [Chun-Mao Lai\*](https://www.mecoli.net/)<sup>1</sup>,
 [Hsiang-Chun Wang\*](https://hsiangchun0205.github.io/)<sup>1</sup>,
@@ -15,7 +15,7 @@ The Official PyTorch implementation of [**Diffusion Rewards Adversarial Imitatio
 <sup>1</sup>[NTU RobotLearning Lab](https://shaohua0116.github.io/), <sup>2</sup>National Yang Ming Chiao Tung University, <sup>3</sup>[NVIDIA Research Taiwan](https://research.nvidia.com/labs/twn/)<br>
 (\*Equal contribution)
 
-[[`Paper`](https://arxiv.org/abs/2405.16194)] [[`ICLRW'24 Poster`](./drail_poster.png)] [[`Website`]()] [[`BibTeX`](#citation)]
+[[`Paper`](https://arxiv.org/abs/2405.16194)] [[`Website`](https://nturobotlearninglab.github.io/DRAIL/)] [[`BibTeX`](#citation)] [[`ICLRW'24 Poster`](./drail_poster.png)]
 
 This work proposes **Diffusion-Reward Adversarial Imitation Learning (DRAIL)**, which integrates a diffusion model into GAIL, aiming to yield more precise and smoother rewards for policy learning. Specifically, we propose a diffusion discriminative classifier to construct an enhanced discriminator; then, we design diffusion rewards based on the classifier's output for policy learning. We conduct extensive experiments in navigation, manipulation, and locomotion, verifying DRAIL's effectiveness compared to prior imitation learning methods. Moreover, additional experimental results demonstrate the generalizability and data efficiency of DRAIL. Visualized learned reward functions of GAIL and DRAIL suggest that DRAIL can produce more precise and smoother rewards.
 

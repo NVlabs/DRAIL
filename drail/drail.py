@@ -70,9 +70,16 @@ class Discriminator(nn.Module):
     def diffusion_loss(self, label, sa_pair, alphas_bar_sqrt, one_minus_alphas_bar_sqrt, n_steps):
         batch_size = sa_pair.shape[0]
 
-        t = torch.randint(0, n_steps, size=(batch_size//2,)).to(self.args.device)
-        t = torch.cat([t, n_steps-1-t], dim=0) #[batch_size, 1]
-        t = t.unsqueeze(-1)
+        if self.args.sample_strategy == "constant":
+            step = self.args.sample_strategy_value
+            if step >= n_steps:
+                step = n_steps - 1
+            t = torch.full((batch_size,), step, device=self.args.device)
+            t = t.unsqueeze(-1)
+        else:
+            t = torch.randint(0, n_steps, size=(batch_size//2,)).to(self.args.device)
+            t = torch.cat([t, n_steps-1-t], dim=0) #[batch_size, 1]
+            t = t.unsqueeze(-1)
         
         # coefficient of x0
         a = alphas_bar_sqrt[t]
@@ -475,6 +482,8 @@ class DRAILDiscrim(BaseIRLAlgo):
         parser.add_argument('--agent-loss-end', type=float, default=-1.1)
         parser.add_argument('--discrim-depth', type=int, default=4)
         parser.add_argument('--discrim-num-unit', type=int, default=128)
+        parser.add_argument('--sample-strategy', type=str, default="random")
+        parser.add_argument('--sample-strategy-value', type=int, default=250)
         parser.add_argument('--n-drail-epochs', type=int, default=1)
         parser.add_argument('--label-dim', type=int, default=10)
         parser.add_argument('--test-sine-env', type=str2bool, default=False)

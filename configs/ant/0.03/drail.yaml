@@ -36,7 +36,7 @@ parameters:
   traj-frac:
     value: 0.5
   ant-noise:
-    value: 0.01
+    value: 0.03
   action-input:
     value: True
   num-epochs:

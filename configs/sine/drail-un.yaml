@@ -43,8 +43,6 @@ parameters:
     value: 100
   traj-load-path:
     value: ./expert_datasets/sine.pt
-  num-eval:
-    value: 1
   lr:
     value: 1e-6
   disc-lr:
